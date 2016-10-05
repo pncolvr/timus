@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="ELBreak" representedClassName="ELBreak" syncable="YES">
+        <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="task" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ELTask" inverseName="intervals" inverseEntity="ELTask" syncable="YES"/>
+    </entity>
+    <entity name="ELProject" representedClassName="ELProject" syncable="YES">
+        <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="modifiedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ELTask" inverseName="project" inverseEntity="ELTask" syncable="YES"/>
+    </entity>
+    <entity name="ELTask" representedClassName="ELTask" syncable="YES">
+        <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="intervals" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ELBreak" inverseName="task" inverseEntity="ELBreak" syncable="YES"/>
+        <relationship name="project" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ELProject" inverseName="tasks" inverseEntity="ELProject" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ELBreak" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ELProject" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ELTask" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

@@ -1,0 +1,71 @@
+//
+// Prefix header for all source files of the 'ElasticLobster' target in the 'ElasticLobster' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    @import UIKit;
+    @import Foundation;
+    @import CoreData;
+
+#import "ELLogging.h"
+#import "ELUserDefaults.h"
+#import "ELAppearanceManager.h"
+
+#define LOG_METHOD_NAME ELLogDebug(@"%s", __PRETTY_FUNCTION__);
+#define LOG_STACK_TRACE ELLogDebug(@"%@", [NSThread callStackSymbols]);
+#define LOG_METHOD_NOT_IMPLEMENTED ELLogDebug(@"Method not implemented %s", __PRETTY_FUNCTION__);
+#define APP_WINDOW [[[UIApplication sharedApplication] delegate] window]
+
+#define kEmptyString @""
+
+#define kCoreDataDidLoadNotification @"kCoreDataDidLoadNotification"
+#define kCoreDataDidNotLoadNotification @"kCoreDataDidNotLoadNotification"
+#define kDefaultProjectDidChangeNotification @"kDefaultProjectDidChangeNotification" 
+#define kCurrentProjectDidUpdateNotification @"kCurrentProjectDidUpdateNotification"
+
+#define kInAppIdentifiers @[@"com.wayacross.timus.multiproject"]
+
+#if TARGET_IPHONE_SIMULATOR
+#define isSimulator YES
+#else
+#define isSimulator NO
+#endif
+
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+#define kRunningProjectFont [UIFont fontWithName:@"Helvetica Neue Bold Italic" size:15.0f]
+#define kNoRunningProjectFont [UIFont fontWithName:@"Helvetica Neue Bold" size:15.0f]
+#define kProductiveTimeColor [UIColor colorWithRedValue:20.0 greenValue:210.0 blueValue:20.0 alpha:1.0]
+#define kNonProductiveTimeColor [UIColor colorWithRedValue:255.0 greenValue:152.0 blueValue:3.0 alpha:1.0]
+#define kNoCurrentWorkTimeColor [UIColor blackColor]
+#define kTextBlackColor [UIColor blackColor]
+#define kZeroTasksColor [UIColor colorWithRedValue:170.0 greenValue:170.0 blueValue:170.0 alpha:1.0]
+
+#define kClearColor [UIColor clearColor]
+#define kSelectedColor [UIColor colorWithRedValue:237 greenValue:237 blueValue:237 alpha:1.0f]
+#define kBottomBorderSize 1.0f
+
+#define kInvalidDateColor [UIColor redColor]
+#define kValidDateColor [UIColor blackColor]
+
+#define ELAsyncMainThread(code) \
+dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{ \
+ code \
+});\
+
+#define ELAsync(code) \
+dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{ \
+ code \
+}); \
+
+#endif
