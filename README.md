@@ -12,6 +12,3 @@ Simple app to track productive and non productive time
 ![Screenshot 7](https://raw.githubusercontent.com/pncolvr/timus/master/images/07.png)
 ![Screenshot 8](https://raw.githubusercontent.com/pncolvr/timus/master/images/08.png)
 ![Screenshot 9](https://raw.githubusercontent.com/pncolvr/timus/master/images/09.png)
-![Screenshot 10](https://raw.githubusercontent.com/pncolvr/timus/master/images/10.png)
-![Screenshot 11](https://raw.githubusercontent.com/pncolvr/timus/master/images/11.png)
-![Screenshot 12](https://raw.githubusercontent.com/pncolvr/timus/master/images/12.png)
